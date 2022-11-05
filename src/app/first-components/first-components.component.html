@@ -1,0 +1,68 @@
+<div>
+    <p>Today is {{today | date}}</p>
+    <p>Or Today's Date : {{today | date:'fullDate'}}</p>
+    <p>The is current time {{today | date:'h:mm a z'}}</p>
+    <p>The is Date: {{today | date:'MM/dd/yyyy'}}</p>
+    <p>The is Date: {{today | date:'shortDate'}}</p>
+</div>
+<div>
+    <p>Integer Data : {{data}}</p>
+    <p>String Data : {{str}}</p>
+</div>
+
+<!-- <div *ngIf="hero">
+    <div>
+        <label for="hero-name">Hero Name: </label>
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+    <h2>{{hero.name | uppercase}} : Details</h2>
+</div> -->
+<div>
+    <ul>
+        <li>{{arrayData}}</li>
+    </ul>
+</div>
+<div>
+    <ul class="heroes">
+        <li *ngFor="let hero of HEROES">
+            <span class="badge">{{hero.id }} </span>
+            <span class="name"> {{ hero.name}}</span>
+        </li>
+    </ul>
+</div>
+<div>
+    <select class="heroes">
+        <option *ngFor="let hero of HEROES">
+            {{hero.name}}
+        </option>
+    </select>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let hero of HEROES">
+            <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+                <span class="badge">{{hero.id}}</span>
+                <span class="name">{{hero.name}}</span>
+            </button>
+        </li>
+    </ul>
+</div>
+<div>
+    <select (change)="onChange()" [(ngModel)]="selectedHero">
+        <option [ngValue]="undefined" disabled selected>Choose Name</option>
+        <option *ngFor="let hero of HEROES" [ngValue]="hero">            
+                {{hero.id}}{{hero.name}}            
+        </option>
+    </select>
+</div>
+<div *ngIf="selectedHero">
+    <div>id: {{selectedHero.id}}</div>
+    <p>{{selectedHero.name | uppercase}} Details</p>
+    <div>
+        <label for="hero-name">Hero name: </label>
+        <textarea id="hero-name" name="hero-name" [(ngModel)]="selectedHero.name" placeholder="name" rows="3"
+            cols="20"></textarea><br>
+        <label for="hero-id">Hero Id: </label>
+        <input type="text" id="hero-id" [(ngModel)]="selectedHero.id" placeholder="id">
+    </div>
+</div>

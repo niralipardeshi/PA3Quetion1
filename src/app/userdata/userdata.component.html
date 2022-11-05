@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form #userForm="ngForm" (submit)="onSubmit(userForm)">
+        <div class="d-flex justify-content-center">
+            <div class="card w-50">
+                <div class="card-body">
+                    <h1>User Data </h1>
+                    Name: <input name="name" class="form-control" ngModel type="text"><br>                    
+                    Age: <input name="age" class="form-control" ngModel type="text"><br>
+                    Email :<input name="email" class="form-control mb-2" ngModel type="email"><br>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+ 
+    <div>
+        <ul *ngIf="data2!=null">
+            <li>{{data2.name}}</li>
+            <li>{{data2.age}}</li>
+            <li>{{data2.email}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>
